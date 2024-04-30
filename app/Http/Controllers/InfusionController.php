@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Infusion;
 use Illuminate\Http\Request;
+use App\Models\Patient;
+
 
 class InfusionController extends Controller
 {
@@ -25,11 +27,19 @@ class InfusionController extends Controller
     }
 
     public function index()
-    {
-        // Menampilkan data terbaru
-        $infusions = Infusion::latest()->take(10)->get();
-         return response()->json($infusions);
-    }
+        {
+            // Mengambil semua data pasien dan hanya mengembalikan `mac` dan `target_tpm`
+            $data = Patient::all()->map(function ($patient) {
+                return [
+                    'mac' => $patient->mac,
+                    'target_tpm' => $patient->target_tpm
+                ];
+            });
+
+            // Mengembalikan data dalam format JSON
+            return response()->json($data);
+        }
+        
 
     // Tambahkan fungsi untuk GET jika diperlukan
 }
