@@ -6,6 +6,17 @@ use App\Http\Controllers\PasienController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\InfusionController;
+
+use App\Http\Controllers\PatientController;
+
+Route::get('/patients/create', [PatientController::class, 'create'])->name('patients.create');
+Route::post('/patients', [PatientController::class, 'store'])->name('patients.store');
+
+Route::get('/infusions', [InfusionController::class, 'index']);
+
+
+
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 Route::get('/daftar-pasien', [PasienController::class, 'index'])->name('daftar-pasien.index');
 Route::get('/tambah-pasien', [PasienController::class, 'create'])->name('tambah-pasien.create');
