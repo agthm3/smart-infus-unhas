@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Modul;
 use Illuminate\Http\Request;
+use App\Models\Patient;
 
 class ModulController extends Controller
 {
@@ -12,7 +13,8 @@ class ModulController extends Controller
      */
     public function index()
     {
-        return view('modul.index');
+        $allModul = Patient::all();
+        return view('modul.index', compact('allModul'));
     }
 
     /**

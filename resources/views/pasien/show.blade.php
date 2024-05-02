@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4">
             <span class="text-muted fw-light"><a href="{{ route('daftar-pasien.index') }}">Daftar Pasien/</a></span> Detail
@@ -19,33 +20,33 @@
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">Nama</label>
                                 <div class="col-sm-10">
-                                    <p class="form-control">john doa</p>
+                                    <p class="form-control">{{$patient->nama}}</p>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-company">Nomor ID</label>
                                 <div class="col-sm-10">
-                                    <p class="form-control">938463986</p>
+                                    <p class="form-control">{{$patient->nomor_id}}</p>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-email">Jenis Kelamin</label>
                                 <div class="col-sm-10">
                                     <div class="input-group input-group-merge">
-                                        <p class="form-control">Pria Jantan</p>
+                                        <p class="form-control">{{$patient->jenis_kelamin}}</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-phone">Jenis Infus</label>
                                 <div class="col-sm-10">
-                                    <p class="form-control">Infus Anti Zombie</p>
+                                    <p class="form-control">{{$patient->jenis_infus}}</p>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-message">Jenis Penyakit</label>
                                 <div class="col-sm-10">
-                                    <p class="form-control">Sakit Hati</p>
+                                    <p class="form-control">{{$patient->jenis_penyakit}}</p>
                                 </div>
                             </div>
                             <div class="row justify-content-end">

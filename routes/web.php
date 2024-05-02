@@ -20,8 +20,10 @@ Route::get('/infusions', [InfusionController::class, 'index']);
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 Route::get('/daftar-pasien', [PasienController::class, 'index'])->name('daftar-pasien.index');
 Route::get('/tambah-pasien', [PasienController::class, 'create'])->name('tambah-pasien.create');
-Route::get('/detail-pasien', [PasienController::class, 'show'])->name('detail-pasien.show');
+Route::get('/detail-pasien/{patient}', [PasienController::class, 'show'])->name('detail-pasien.show');
 Route::get('/edit-pasien', [PasienController::class, 'edit'])->name('edit-pasien.edit');
+
+Route::delete('/patient/{patient}', [PasienController::class, 'destroy'])->name('destroy-pasien');
 
 
 Route::get('/daftar-modul', [ModulController::class, 'index'])->name('daftar-modul.index');

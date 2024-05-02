@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pasien;
 use Illuminate\Http\Request;
+use App\Models\Patient;
 
 class PasienController extends Controller
 {
@@ -12,7 +13,8 @@ class PasienController extends Controller
      */
     public function index()
     {
-        return view('pasien.index');
+        $allpasien = Patient::all();
+        return view('pasien.index', compact('allpasien'));
     }
 
     /**
@@ -34,9 +36,9 @@ class PasienController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Pasien $pasien)
+    public function show(Patient $patient)
     {
-        return view('pasien.show');
+        return view('pasien.show',compact('patient'));
     }
 
     /**
@@ -58,8 +60,9 @@ class PasienController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pasien $pasien)
+    public function destroy(Patient $patient)
     {
-        //
+        $patient->delete();
+        return redirect()->route('daftar-pasien.index');
     }
 }
